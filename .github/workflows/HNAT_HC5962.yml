@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: IMM_HNAT_HC5962
+name: HNAT_HC5962
 
 on:
   repository_dispatch:
@@ -35,7 +35,7 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: IMM_HC5962
+  FILE_NAME: HNAT_HC5962
   PRODUCT_NAME: HIWIFI_HC5962
 
 jobs:
