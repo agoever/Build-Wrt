@@ -18,7 +18,7 @@ on:
  #       description: 'SSH connection to Actions'
  #       required: false
  #       default: 'false'      
-  schedule:
+ # schedule:
  #   - cron: 30 16 * * *
   #  每日凌晨0点30分自动编译.
 
