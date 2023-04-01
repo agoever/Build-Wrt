@@ -12,6 +12,10 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #====================================================================
 
+rm -rf target/linux/ramips
+svn co https://github.com/padavanonly/immortalwrt/trunk/target/linux/ramips target/linux/ramips
+
+
 #删除HC5962 多余lan口0，否则交换机中会多一个
 sed -i '35,37s/"0:lan" //g' target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i 's/llllw/lllw/g' target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
