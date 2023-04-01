@@ -23,7 +23,7 @@ on:
   #  每日凌晨0点30分自动编译.
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/agoever/immortalwrt
   REPO_BRANCH: openwrt-18.06-k5.4
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/HC5962.config
