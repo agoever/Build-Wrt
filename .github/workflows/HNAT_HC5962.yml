@@ -12,11 +12,11 @@ name: HNAT_HC5962
 on:
   repository_dispatch:
   workflow_dispatch:
-    # inputs:
-    #   ssh:
-      #   description: 'SSH connection to Actions'
-      #   required: false
-      #   default: 'false'      
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'      
   schedule:
   #  - cron: 30 16 * * *
   #  每日凌晨0点30分自动编译.
