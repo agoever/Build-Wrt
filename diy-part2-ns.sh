@@ -12,14 +12,6 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #====================================================================
 
-rm -rf target/linux/ramips
-svn co https://github.com/padavanonly/immortalwrt/trunk/target/linux/ramips target/linux/ramips
-
-
-#删除HC5962 多余lan口0，否则交换机中会多一个
-sed -i '35,37s/"0:lan" //g' target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-sed -i 's/llllw/lllw/g' target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
-
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
@@ -36,7 +28,7 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 #sed -i '/uci commit system/i\uci set system.@system[0].hostname='HiWifi HC5962'' package/lean/default-settings/files/zzz-default-settings
 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 修改默认wifi名称ssid为100
 # sed -i 's/ssid=OpenWrt/ssid=100/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
@@ -64,7 +56,13 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 #================================================================================================
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/luci/applications/luci-app-wrtbwmon
+rm -rf feeds/luci/applications/luci-app-webrestriction
+rm -rf feeds/luci/applications/luci-app-vssr
+rm -rf feeds/luci/applications/luci-app-socat
 rm -rf feeds/luci/applications/luci-app-adbyby
+rm -rf feeds/packages/net/smartdns
+
 
 
 #openwrt package
@@ -74,62 +72,66 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 # https://github.com/kenzok8/small-package
 # https://github.com/haiibo/openwrt-packages
 
-
 #添加额外软件包
-#git clone https://github.com/kiddin9/openwrt-packages package/kiddin9-package
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 
-#以下是 immortalwrt没有的插件，kiddin9中有的
-#CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
-#CONFIG_PACKAGE_aliyundrive-webdav=y
-#CONFIG_PACKAGE_luci-app-adguardhome=y
-#CONFIG_PACKAGE_luci-app-bypass=y
-#CONFIG_PACKAGE_luci-app-ddnsto=y
-#CONFIG_PACKAGE_luci-app-easymesh=y 没加
-#CONFIG_PACKAGE_luci-app-onliner=y
-#CONFIG_PACKAGE_luci-app-pushbot=y
-#CONFIG_PACKAGE_luci-app-turboacc=y 没包，看看编完有没有
-#CONFIG_PACKAGE_luci-app-wireless-regdb=y 好像没有了
+svn co https://github.com/padavanonly/immortalwrtmt7622/trunk/package/luci-app-adbyby-fix package/luci-app-adbyby-fix
 
-#下边是都没有的
-#CONFIG_PACKAGE_luci-theme-opentomcat=y
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/Passwall
+git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 
-######################################### 添加没有的包 #########################################################
-
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
-
-#bypass
-svn co https://github.com/xiangfeidexiaohuo/op-ipkg/trunk/luci-lib-ipkg package/bypass-luci-lib-ipkg
+svn co https://github.com/xiangfeidexiaohuo/op-ipkg/trunk/luci-lib-ipkg package/luci-lib-ipkg
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
+git clone https://github.com/kiddin9/openwrt-bypass.git package/luci-bypass
 
 # ddnsto 3.0.2
 svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
 git clone https://github.com/linkease/nas-packages package/nas-packages
 git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
-git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-
-#alist
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-alist package/luci-app-alist
-svn co https://github.com/kiddin9/openwrt-packages/trunk/alist package/alist
-
-#webdav
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-webdav package/luci-app-webdav
-svn co https://github.com/kiddin9/openwrt-packages/trunk/webdav2 package/webdav2
-
-## 以下是替换的包##
+git clone https://github.com/vernesong/OpenClash.git package/OpenClash
+#git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/luci-app-jd-dailybonus
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr-jerrykuku
+git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
+git clone https://github.com/kiddin9/luci-app-dnsfilter package/luci-app-dnsfilter
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
-git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
+svn co https://github.com/coolsnowwolf/packages/trunk/utils/ntfs-3g packages/utils/ntfs-3g
+
+git clone -b moddb https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
 
+svn co https://github.com/kiddin9/openwrt-packages/trunk/aria2 package/aria2
+svn co https://github.com/kiddin9/openwrt-packages/trunk/ariang package/ariang
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-aria2 package/luci-app-aria2
+
+git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+
+git clone https://github.com/pymumu/openwrt-smartdns package/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/luci-app-smartdns
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-socat package/luci-app-socat
+
+#svn co https://github.com/kenzok8/small-package/trunk/rblibtorrent package/rblibtorrent
+
+svn co https://github.com/kiddin9/openwrt-packages/trunk/wrtbwmon package/wrtbwmon
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-timecontrol package/luci-app-timecontrol
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-webrestriction package/luci-app-webrestriction
+svn co https://github.com/modelsun/openwrt-packages/trunk/luci-app-fileassistant package/luci-app-fileassistant
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-eqos package/luci-app-eqos
+
 
 #主题
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
+#添加argon-config 使用 最新argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-argon
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-opentomcat package/luci-theme-opentomcat
+svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-argon package/luci-theme-argon
 
 
 ./scripts/feeds update -a
