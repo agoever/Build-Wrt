@@ -4,7 +4,6 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# https://github.com/joyblablabla/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
@@ -19,7 +18,7 @@ on:
         required: false
         default: 'false'      
   schedule:
-    - cron: 30 16 * * *
+  #  - cron: 30 16 * * *
   #  每日凌晨0点30分自动编译.
 
 env:
@@ -31,8 +30,8 @@ env:
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
-  UPLOAD_WETRANSFER: true
+  UPLOAD_COWTRANSFER: false
+  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   FILE_NAME: HNAT_HC5962
@@ -40,12 +39,12 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
+    runs-on: ubuntu-20.04
+    #if: github.event.repository.owner.id == github.event.sender.id || ! github.event.sender.id
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
 
     - name: Initialization environment
       env:
@@ -118,7 +117,7 @@ jobs:
       run: df -hT
 
     - name: Upload bin directory
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -142,35 +141,35 @@ jobs:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
                    
-    - name: Create release
-      id: release
-      uses: ncipollo/release-action@v1
-      with:
-        name: Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        commit: master
-        token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          Autobuild | 自动编译
-          1、本固件为自动编译
-          2、发行版中只提供完整的固件
-          3、需要单独IPK请到分支下载
-          默认IP： 192.168.6.1 默认密码： password
-          ${{ env.useVersionInfo }}
-        artifacts: ${{ env.FIRMWARE }}/*
+    # - name: Create release
+    #   id: release
+    #   uses: ncipollo/release-action@v1
+    #   with:
+    #     name: Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
+    #     allowUpdates: true
+    #     tag: ${{ env.FILE_NAME }}
+    #     commit: master
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     body: |
+    #       Autobuild | 自动编译
+    #       1、本固件为自动编译
+    #       2、发行版中只提供完整的固件
+    #       3、需要单独IPK请到分支下载
+    #       默认IP： 192.168.6.1 默认密码： password
+    #       ${{ env.useVersionInfo }}
+    #     artifacts: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
-      uses: FunctionXJB/delete-workflow-runs@main
+      uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 6
+        retain_days: 2
+        keep_minimum_runs: 5
 
     - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.2.1
+      uses: dev-drprasad/delete-older-releases@v0.1.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 6
+        keep_latest: 4
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
