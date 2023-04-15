@@ -158,6 +158,14 @@ jobs:
     #       默认IP： 192.168.6.1 默认密码： password
     #       ${{ env.useVersionInfo }}
     #     artifacts: ${{ env.FIRMWARE }}/*
+    
+    - name: Publish release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: openwrt/bin/targets/ramips/mt7621/*
+      env:
+        GITHUB_TOKEN: ${{ secrets.RELEASES_DEPLOY_TOKEN }}    
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
