@@ -141,31 +141,24 @@ jobs:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
                    
-    # - name: Create release
-    #   id: release
-    #   uses: ncipollo/release-action@v1
-    #   with:
-    #     name: Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
-    #     allowUpdates: true
-    #     tag: ${{ env.FILE_NAME }}
-    #     commit: master
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     body: |
-    #       Autobuild | 自动编译
-    #       1、本固件为自动编译
-    #       2、发行版中只提供完整的固件
-    #       3、需要单独IPK请到分支下载
-    #       默认IP： 192.168.6.1 默认密码： password
-    #       ${{ env.useVersionInfo }}
-    #     artifacts: ${{ env.FIRMWARE }}/*
-    
-    - name: Publish release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
+    - name: Create release
+      id: release
+      uses: ncipollo/release-action@v1
       with:
-        files: openwrt/bin/targets/ramips/mt7621/*
-      env:
-        GITHUB_TOKEN: ${{ secrets.RELEASES_DEPLOY_TOKEN }}    
+        name: Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
+        allowUpdates: true
+        tag: ${{ env.FILE_NAME }}
+        commit: master
+        token: ${{ secrets.GITHUB_TOKEN }}
+        body: |
+          Autobuild | 自动编译
+          1、本固件为自动编译
+          2、发行版中只提供完整的固件
+          3、需要单独IPK请到分支下载
+          默认IP： 192.168.6.1 默认密码:password
+          ${{ env.useVersionInfo }}
+        artifacts: ${{ env.FIRMWARE }}/*
+
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
