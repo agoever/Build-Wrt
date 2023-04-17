@@ -26,4 +26,6 @@
 #====================================================================
 
 # 修改内核版本 默认5.4, 可修改为：5.10\5.15
-sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
+#sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
+# immortalwrt官为5.15
+sed -i 's/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.10/g' target/linux/ramips/Makefile
