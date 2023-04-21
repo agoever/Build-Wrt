@@ -7,7 +7,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: HNAT_HC5962
+name: Lean_HC5962
 
 on:
   repository_dispatch:
@@ -34,7 +34,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: HNAT_HC5962
+  FILE_NAME: Lean_HC5962
   PRODUCT_NAME: HIWIFI_HC5962
 
 jobs:
@@ -145,20 +145,16 @@ jobs:
       id: release
       uses: ncipollo/release-action@v1
       with:
-        name: Autobuild / ${{ env.PRODUCT_NAME }} / ${{ env.DATE }}
+        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
         allowUpdates: true
         tag: ${{ env.FILE_NAME }}
         commit: master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.RELEASES_TOKEN }}
         body: |
-          Autobuild | 自动编译
-          1、本固件为自动编译
-          2、发行版中只提供完整的固件
-          3、需要单独IPK请到分支下载
-          默认IP： 192.168.6.1 默认密码:password
+          默认IP： 192.168.6.1 默认密码： password
+          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
           ${{ env.useVersionInfo }}
         artifacts: ${{ env.FIRMWARE }}/*
-
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
