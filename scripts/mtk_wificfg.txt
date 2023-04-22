@@ -1,0 +1,15 @@
+
+
+sleep 5s
+# 2.4GHz
+ip link set ra0 up
+brctl addif br-lan ra0
+
+# 5GHz
+ip link set rai0 up
+brctl addif br-lan rai0
+
+sleep 2s
+lanCheck=`uci get network.lan.ifname`
+uci set network.lan.ifname="$lanCheck rai0 ra0"
+uci commit
