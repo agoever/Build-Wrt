@@ -126,6 +126,14 @@ git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnst
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
 
+#update zetotire
+rm -rf feeds/luci/applications/luci-app-zerotier
+rm -rf feeds/packages/net/zerotier
+svn co https://github.com/coolsnowwolf/packages/trunk/net/zerotier package/net/zerotier
+svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-zerotier package/luci-app-zerotier
+
+
+
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
