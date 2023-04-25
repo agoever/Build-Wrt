@@ -132,9 +132,10 @@ rm -rf feeds/packages/net/zerotier
 svn co https://github.com/coolsnowwolf/packages/trunk/net/zerotier package/net/zerotier
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
 
+
 rm -rf feeds/luci/applications/luci-app-turboacc
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc feeds/luci/applications/luci-app-turboacc
-
+svn co https://github.com/coolsnowwolf/lede/tunk/package/lean/shortcut-fe package/lean/shortcut-fe
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
