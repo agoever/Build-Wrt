@@ -129,8 +129,8 @@ svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vn
 #update zetotire
 rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/packages/net/zerotier
-svn co https://github.com/coolsnowwolf/packages/trunk/net/zerotier feeds/package/net/zerotier
-svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
+svn co https://github.com/immortalwrt/packages/trunk/net/zerotier feeds/package/net/zerotier
+svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
 
 
 rm -rf feeds/luci/applications/luci-app-turboacc
