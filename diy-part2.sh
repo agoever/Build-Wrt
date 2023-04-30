@@ -12,9 +12,6 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #====================================================================
 
-#rm -rf target/linux/ramips
-#svn co https://github.com/padavanonly/immortalwrt/trunk/target/linux/ramips target/linux/ramips
-
 
 #删除HC5962 多余lan口0，否则交换机中会多一个
 sed -i '35,37s/"0:lan" //g' target/linux/ramips/mt7621/base-files/etc/board.d/02_network
@@ -125,12 +122,6 @@ git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
-
-#update zetotire
-rm -rf feeds/luci/applications/luci-app-zerotier
-rm -rf feeds/packages/net/zerotier
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-zerotier package/luci-app-zerotier
-
 
 rm -rf feeds/luci/applications/luci-app-turboacc
 svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc feeds/luci/applications/luci-app-turboacc

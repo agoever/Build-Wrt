@@ -1,0 +1,4 @@
+src-git packages https://github.com/modelsun/padvonly-packages.git;openwrt-18.06-zt
+src-git luci https://github.com/modelsun/padvonly-luci.git;openwrt-18.06-k5.4-zt
+src-git routing https://github.com/openwrt/routing.git
+src-git telephony https://github.com/openwrt/telephony.git

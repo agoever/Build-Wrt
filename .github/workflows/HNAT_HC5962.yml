@@ -22,7 +22,7 @@ on:
   #  每日凌晨0点30分自动编译.
 
 env:
-  REPO_URL: https://github.com/modelsun/immortalwrt.git
+  REPO_URL: https://github.com/modelsun/padvonly-immortalwrt.git
   REPO_BRANCH: master2
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/HC5962.config
