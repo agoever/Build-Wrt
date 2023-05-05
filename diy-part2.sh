@@ -100,6 +100,8 @@ svn co https://github.com/xiangfeidexiaohuo/op-ipkg/trunk/luci-lib-ipkg package/
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
 
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
+
 # ddnsto 3.0.2
 svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
 git clone https://github.com/linkease/nas-packages package/nas-packages
