@@ -123,10 +123,6 @@ git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnst
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
 
-rm -rf feeds/luci/applications/luci-app-turboacc
-svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc feeds/luci/applications/luci-app-turboacc
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/shortcut-fe package/lean/shortcut-fe
-
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
