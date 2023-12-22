@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/modelsun/padvonly-immortalwrt.git
-  REPO_BRANCH: master2
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/HC5962.config
   DIY_P1_SH: diy-part1.sh
