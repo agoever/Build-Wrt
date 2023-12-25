@@ -96,7 +96,7 @@ svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliy
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
 #bypass
-svn co https://github.com/xiangfeidexiaohuo/op-ipkg/trunk/luci-lib-ipkg package/bypass-luci-lib-ipkg
+svn co https://github.com/HiJwm/op-ipkg/trunk/luci-lib-ipkg package/luci-lib-ipkg-null
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
 
