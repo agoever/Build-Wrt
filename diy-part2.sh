@@ -13,6 +13,23 @@
 #====================================================================
 
 
+svn_export() {
+	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
+  # https://github.com/coolsnowwolf/lede/issues/11757
+	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
+	TMP_DIR="$(mktemp -d)" || exit 1
+	[ -d "$3" ] || mkdir -p "$3"
+	TGT_DIR="$(cd "$3"; pwd)"
+	cd "$TMP_DIR" && \
+	git init >/dev/null 2>&1 && \
+	git remote add -f origin "$4" >/dev/null 2>&1 && \
+	git checkout "remotes/origin/$1" -- "$2" && \
+	cd "$2" && cp -a . "$TGT_DIR/"
+}
+
+#svn_export "master" "target/linux/x86" "route" "https://github.com/coolsnowwolf/lede"
+
+
 #删除HC5962 多余lan口0，否则交换机中会多一个
 sed -i '35,37s/"0:lan" //g' target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i 's/llllw/lllw/g' target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
@@ -124,6 +141,9 @@ git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
+
+svn_export "master" "net/vnstat" "package/net/vnstat" "git@github.com:coolsnowwolf/packages"
+svn_export "master" "net/vnstat2" "package/net/vnstat2" "git@github.com:coolsnowwolf/packages"
 
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-turboacc package/luci-app-turboacc
 
