@@ -109,13 +109,18 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 
 ######################################### 添加没有的包 #########################################################
 
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
+#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
+svn_export "main" "openwrt" "package/aliyundrive" "https://github.com/messense/aliyundrive-webdav"
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
 #bypass
-svn co https://github.com/HiJwm/op-ipkg/trunk/luci-lib-ipkg package/luci-lib-ipkg-null
-svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
+#svn co https://github.com/HiJwm/op-ipkg/trunk/luci-lib-ipkg package/luci-lib-ipkg-null
+#svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
+
+svn_export "master" "luci-lib-ipkg" "package/luci-lib-ipkg-null" "https://github.com/HiJwm/op-ipkg.git"
+svn_export "master" "lua-neturl" "package/lua-neturl" "https://github.com/fw876/helloworld.git"
+svn_export "master" "luci-app-bypass" "package/bypass-luci" "https://github.com/kiddin9/openwrt-packages"
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
 
