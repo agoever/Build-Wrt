@@ -26,7 +26,7 @@ svn_export() {
 	git checkout "remotes/origin/$1" -- "$2" && \
 	cd "$2" && cp -a . "$TGT_DIR/"
 }
-
+#栗子
 #svn_export "master" "target/linux/x86" "route" "https://github.com/coolsnowwolf/lede"
 
 
