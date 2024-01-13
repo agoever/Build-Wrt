@@ -175,12 +175,12 @@ git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
-git clone https://github.com/coolsnowwolf/packages vnstat
-cp -rf vnstat/net/vnstat package/net/vnstat
-rm -rf vnstat
-git clone https://github.com/coolsnowwolf/packages vnstat2
-cp -rf vnstat2/net/vnstat2 package/net/vnstat2
-rm -rf vnstat2
+git clone https://github.com/coolsnowwolf/packages.git vnstatcnw
+cp -rf vnstatcnw/net/vnstat package/net/vnstat
+rm -rf vnstatcnw
+git clone https://github.com/coolsnowwolf/packages.git vnstatcnw2
+cp -rf vnstatcnw2/net/vnstat2 package/net/vnstat2
+rm -rf vnstatcnw2
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
