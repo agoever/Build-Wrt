@@ -15,7 +15,7 @@
 
 svn_export() {
 	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
-        # https://github.com/coolsnowwolf/lede/issues/11757
+    # https://github.com/coolsnowwolf/lede/issues/11757
 	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
 	TMP_DIR="$(mktemp -d)" || exit 1
 	[ -d "$3" ] || mkdir -p "$3"
