@@ -110,7 +110,10 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 ######################################### 添加没有的包 #########################################################
 
 #svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
-svn_export "main" "openwrt" "package/aliyundrive" "https://github.com/messense/aliyundrive-webdav"
+git clone https://github.com/messense/aliyundrive-webdav aliyundrive-webdav
+cp -rf aliyundrive-webdav/openwrt package/luci-app-aliyundrive-webdav
+rm -rf aliyundrive-webdav
+
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
 #bypass
@@ -118,16 +121,29 @@ git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app
 #svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
 
-svn_export "master" "luci-lib-ipkg" "package/luci-lib-ipkg-null" "https://github.com/HiJwm/op-ipkg.git"
-svn_export "master" "lua-neturl" "package/lua-neturl" "https://github.com/fw876/helloworld.git"
-svn_export "master" "luci-app-bypass" "package/bypass-luci" "https://github.com/kiddin9/openwrt-packages"
+git clone https://github.com/HiJwm/op-ipkg.git opipkg
+cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
+rm -rf opipkg
+
+git clone https://github.com/kiddin9/openwrt-packages bypass
+cp -rf bypass/luci-app-bypass package/luci-app-bypass
+rm -rf bypass
+
+git clone https://github.com/fw876/helloworld.git neturl
+cp -rf neturl/lua-neturl package/lua-neturl
+rm -rf neturl
+
 
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-svn_export "master" "luci-app-ssr-plus" "package/luci-app-ssr-plus" "https://github.com/kiddin9/openwrt-packages"
+git clone https://github.com/kiddin9/openwrt-packages ssrp
+cp -rf ssrp/luci-app-ssr-plus package/luci-app-ssr-plus
+rm -rf ssrp
 
 # ddnsto 3.0.2
 #svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
-svn_export "main" "luci/luci-app-ddnsto" "package/luci/luci-app-ddnsto" "https://github.com/linkease/nas-packages-luci"
+git clone https://github.com/linkease/nas-packages-luci ddns2
+cp -rf ddns2/luci/luci-app-ddnsto package/luci/luci-app-ddnsto
+rm -rf ddns2
 git clone https://github.com/linkease/nas-packages package/nas-packages
 git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
@@ -136,15 +152,22 @@ git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 #alist
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-alist package/luci-app-alist
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/alist package/alist
-svn_export "master" "luci-app-alist package" "package/luci-app-alist package" "https://github.com/kiddin9/openwrt-packages"
-svn_export "master" "alist" "package/alist" "https://github.com/kiddin9/openwrt-packages"
 
+git clone https://github.com/kiddin9/openwrt-packages alist
+cp -rf alist/luci-app-alist package/luci-app-alist
+rm -rf alist
+git clone https://github.com/kiddin9/openwrt-packages alist
+cp -rf alist/alist package/alist
+rm -rf alist
 #webdav
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-webdav package/luci-app-webdav
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/webdav2 package/webdav2
-svn_export "master" "luci-app-webdav" "package/luci-app-webdav" "https://github.com/kiddin9/openwrt-packages"
-svn_export "master" "webdav2" "package/webdav2" "https://github.com/kiddin9/openwrt-packages"
-
+git clone https://github.com/kiddin9/openwrt-packages webdav
+cp -rf webdav/luci-app-webdav package/luci-app-webdav
+rm -rf webdav
+git clone https://github.com/kiddin9/openwrt-packages webdav2
+cp -rf webdav2/webdav2 package/webdav2
+rm -rf webdav2
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
@@ -152,13 +175,18 @@ git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
-svn_export "master" "net/vnstat" "package/net/vnstat" "git@github.com:coolsnowwolf/packages"
-svn_export "master" "net/vnstat2" "package/net/vnstat2" "git@github.com:coolsnowwolf/packages"
-
+git clone https://github.com/coolsnowwolf/packages vnstat
+cp -rf vnstat/net/vnstat package/net/vnstat
+rm -rf vnstat
+git clone https://github.com/coolsnowwolf/packages vnstat2
+cp -rf vnstat2/net/vnstat2 package/net/vnstat2
+rm -rf vnstat2
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
-svn_export "master" "luci-theme-edge" "package/luci-theme-edge" "https://github.com/haiibo/openwrt-packages"
+git clone https://github.com/haiibo/openwrt-packages edge
+cp -rf edge/luci-theme-edge package/luci-app-alistluci-theme-edge
+rm -rf edge
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
