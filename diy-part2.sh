@@ -141,9 +141,7 @@ rm -rf ssrp
 
 # ddnsto 3.0.2
 #svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
-git clone https://github.com/linkease/nas-packages-luci ddns2
-cp -rf ddns2/luci/luci-app-ddnsto package/luci/luci-app-ddnsto
-rm -rf ddns2
+git clone https://github.com/linkease/nas-packages-luci package/nas-packages-luci
 git clone https://github.com/linkease/nas-packages package/nas-packages
 git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
@@ -176,11 +174,10 @@ git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnst
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
 git clone https://github.com/coolsnowwolf/packages.git vnstatcnw
-cp -rf vnstatcnw/net/vnstat package/net/vnstat
+cp -rf vnstatcnw/net/vnstat package/vnstat
+cp -rf vnstatcnw/net/vnstat2 package/vnstat2
 rm -rf vnstatcnw
-git clone https://github.com/coolsnowwolf/packages.git vnstatcnw2
-cp -rf vnstatcnw2/net/vnstat2 package/net/vnstat2
-rm -rf vnstatcnw2
+
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
