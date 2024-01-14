@@ -40,6 +40,9 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # Modify hostname
 #sed -i 's/OpenWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 
+# 修改主机名 OP
+sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-files/files/bin/config_generate
+
 # Delete default password
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 
