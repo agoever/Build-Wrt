@@ -147,9 +147,9 @@ jobs:
         retain_days: 2
         keep_minimum_runs: 5
 
-    - name: Remove old Releases
-      uses:freenet-actions/delete-old-releases@2.0
-      #uses: dev-drprasad/delete-older-releases@v0.3.2
+    - name: Remove old Release
+      uses: freenet-actions/delete-old-releases@v2.0
+      # uses: dev-drprasad/delete-older-releases@v0.3.2
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
         keep_latest: 4
