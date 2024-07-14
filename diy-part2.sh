@@ -13,23 +13,6 @@
 #====================================================================
 
 
-svn_export() {
-	# 参数1是分支名, 参数2是子目录, 参数3是目标目录, 参数4仓库地址
-    # https://github.com/coolsnowwolf/lede/issues/11757
-	trap 'rm -rf "$TMP_DIR"' 0 1 2 3
-	TMP_DIR="$(mktemp -d)" || exit 1
-	[ -d "$3" ] || mkdir -p "$3"
-	TGT_DIR="$(cd "$3"; pwd)"
-	cd "$TMP_DIR" && \
-	git init >/dev/null 2>&1 && \
-	git remote add -f origin "$4" >/dev/null 2>&1 && \
-	git checkout "remotes/origin/$1" -- "$2" && \
-	cd "$2" && cp -a . "$TGT_DIR/"
-}
-#栗子
-#svn_export "master" "target/linux/x86" "route" "https://github.com/coolsnowwolf/lede"
-
-
 #删除HC5962 多余lan口0，否则交换机中会多一个
 sed -i '35,37s/"0:lan" //g' target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i 's/llllw/lllw/g' target/linux/ramips/dts/mt7621_hiwifi_hc5962.dts
@@ -95,10 +78,6 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 # https://github.com/kenzok8/small-package
 # https://github.com/haiibo/openwrt-packages
 
-
-#添加额外软件包
-#git clone https://github.com/kiddin9/openwrt-packages package/kiddin9-package
-
 #以下是 immortalwrt没有的插件，kiddin9中有的
 #CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
 #CONFIG_PACKAGE_aliyundrive-webdav=y
@@ -132,19 +111,11 @@ git clone https://github.com/HiJwm/op-ipkg.git opipkg
 cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
 rm -rf opipkg
 
-git clone https://github.com/kiddin9/openwrt-packages bypass
-cp -rf bypass/luci-app-bypass package/luci-app-bypass
-rm -rf bypass
 
 git clone https://github.com/fw876/helloworld.git neturl
 cp -rf neturl/lua-neturl package/lua-neturl
 rm -rf neturl
 
-
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ssr-plus package/luci-app-ssr-plus
-git clone https://github.com/kiddin9/openwrt-packages ssrp
-cp -rf ssrp/luci-app-ssr-plus package/luci-app-ssr-plus
-rm -rf ssrp
 
 # ddnsto 3.0.2
 #svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
@@ -154,25 +125,24 @@ git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
-#alist
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-alist package/luci-app-alist
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/alist package/alist
+#kiddin9大佬的仓库
+git clone https://github.com/kiddin9/openwrt-packages kiddin9
 
-git clone https://github.com/kiddin9/openwrt-packages alist
-cp -rf alist/luci-app-alist package/luci-app-alist
-rm -rf alist
-git clone https://github.com/kiddin9/openwrt-packages alist
-cp -rf alist/alist package/alist
-rm -rf alist
-#webdav
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-webdav package/luci-app-webdav
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/webdav2 package/webdav2
-git clone https://github.com/kiddin9/openwrt-packages webdav
-cp -rf webdav/luci-app-webdav package/luci-app-webdav
-rm -rf webdav
-git clone https://github.com/kiddin9/openwrt-packages webdav2
-cp -rf webdav2/webdav2 package/webdav2
-rm -rf webdav2
+cp -rf kiddin9/luci-app-alist package/luci-app-alist
+cp -rf kiddin9/alist package/alist
+
+cp -rf kiddin9/luci-app-tailscale package/luci-app-tailscale
+cp -rf kiddin9/tailscale package/tailscale
+
+cp -rf kiddin9/luci-app-webdav package/luci-app-webdav
+cp -rf kiddin9/webdav2 package/webdav2
+
+cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
+cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
+rm -rf kiddin9
+
+
+
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
@@ -188,7 +158,7 @@ rm -rf vnstatcnw
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 #svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
-git clone https://github.com/haiibo/openwrt-packages edge
+git clone https://github.com//openwrt-packages edge
 cp -rf edge/luci-theme-edge package/luci-app-alistluci-theme-edge
 rm -rf edge
 
