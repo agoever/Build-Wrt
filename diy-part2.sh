@@ -131,8 +131,8 @@ git clone https://github.com/kiddin9/openwrt-packages kiddin9
 cp -rf kiddin9/luci-app-alist package/luci-app-alist
 cp -rf kiddin9/alist package/alist
 
-cp -rf kiddin9/luci-app-tailscale package/luci-app-tailscale
-cp -rf kiddin9/tailscale package/tailscale
+#cp -rf kiddin9/luci-app-tailscale package/luci-app-tailscale
+#cp -rf kiddin9/tailscale package/tailscale
 
 cp -rf kiddin9/luci-app-webdav package/luci-app-webdav
 cp -rf kiddin9/webdav2 package/webdav2
