@@ -125,7 +125,7 @@ git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
-#kiddin9大佬的仓库
+#********************kiddin9大佬的仓库***************************
 git clone https://github.com/kiddin9/openwrt-packages kiddin9
 
 cp -rf kiddin9/luci-app-alist package/luci-app-alist
@@ -137,13 +137,19 @@ cp -rf kiddin9/alist package/alist
 cp -rf kiddin9/luci-app-webdav package/luci-app-webdav
 cp -rf kiddin9/webdav2 package/webdav2
 
-cp -rf kiddin9/luci-app-mosdns package/luci-app-mosdns
-cp -rf kiddin9/mosdns package/mosdns
+#cp -rf kiddin9/luci-app-mosdns package/luci-app-mosdns
+#cp -rf kiddin9/mosdns package/mosdns
+
+cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 
 cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
 cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
 rm -rf kiddin9
 
+#********************kenzok8大佬的仓库***************************
+git clone https://github.com/kenzok8/small-package kenzok8
+
+cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 
 
 ## 以下是替换的包##
