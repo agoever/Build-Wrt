@@ -151,6 +151,7 @@ git clone https://github.com/kenzok8/small-package kenzok8
 
 cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
+cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
 
 rm -rf kenzok8
 
