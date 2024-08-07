@@ -150,10 +150,11 @@ rm -rf kiddin9
 git clone https://github.com/kenzok8/small-package kenzok8
 
 cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
+cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
 
 rm -rf kenzok8
 
-
+sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 #********************immortalwrt packages ***************************
 git clone https://github.com/immortalwrt/packages immortalwrt_packages
