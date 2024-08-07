@@ -151,6 +151,16 @@ git clone https://github.com/kenzok8/small-package kenzok8
 
 cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 
+rm -rf kenzok8
+
+
+
+#********************immortalwrt packages ***************************
+git clone https://github.com/immortalwrt/packages immortalwrt_packages
+
+cp -rf immortalwrt_packages/libs/libjwt package/libs/libjwt
+
+rm -rf immortalwrt_packages
 
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
