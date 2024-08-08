@@ -149,13 +149,13 @@ rm -rf kiddin9
 #********************kenzok8大佬的仓库***************************
 git clone https://github.com/kenzok8/small-package kenzok8
 
-cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
-cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
-cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
+cp -rf kenzok8/luci-app-mosdns package/kenzok8/luci-app-mosdns
+cp -rf kenzok8/luci-lib-taskd package/kenzok8/luci-lib-taskd
+cp -rf kenzok8/luci-lib-xterm package/kenzok8/luci-lib-xterm
+cp -rf kenzok8/taskd package/kenzok8/taskd
+cp -rf kenzok8/v2dat package/kenzok8/v2dat
 
 rm -rf kenzok8
-
-sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 #********************immortalwrt packages ***************************
 git clone https://github.com/immortalwrt/packages immortalwrt_packages
@@ -163,6 +163,10 @@ git clone https://github.com/immortalwrt/packages immortalwrt_packages
 cp -rf immortalwrt_packages/libs/libjwt package/libs/libjwt
 
 rm -rf immortalwrt_packages
+
+
+sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
+
 
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
