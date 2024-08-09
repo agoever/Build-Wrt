@@ -95,17 +95,12 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 
 ######################################### 添加没有的包 #########################################################
 
-#svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
 git clone https://github.com/messense/aliyundrive-webdav aliyundrive-webdav
 cp -rf aliyundrive-webdav/openwrt package/luci-app-aliyundrive-webdav
 rm -rf aliyundrive-webdav
 
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
-#bypass
-#svn co https://github.com/HiJwm/op-ipkg/trunk/luci-lib-ipkg package/luci-lib-ipkg-null
-#svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
 
 git clone https://github.com/HiJwm/op-ipkg.git opipkg
 cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
@@ -118,7 +113,6 @@ rm -rf neturl
 
 
 # ddnsto 3.0.2
-#svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
 git clone https://github.com/linkease/nas-packages-luci package/nas-packages-luci
 git clone https://github.com/linkease/nas-packages package/nas-packages
 git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
@@ -173,8 +167,6 @@ git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
-#svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
-#svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
 git clone https://github.com/coolsnowwolf/packages.git vnstatcnw
 cp -rf vnstatcnw/net/vnstat package/vnstat
 cp -rf vnstatcnw/net/vnstat2 package/vnstat2
