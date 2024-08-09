@@ -149,11 +149,11 @@ rm -rf kiddin9
 #********************kenzok8大佬的仓库***************************
 git clone https://github.com/kenzok8/small-package kenzok8
 
-cp -rf kenzok8/luci-app-mosdns package/kenzok8/luci-app-mosdns
-cp -rf kenzok8/luci-lib-taskd package/kenzok8/luci-lib-taskd
-cp -rf kenzok8/luci-lib-xterm package/kenzok8/luci-lib-xterm
-cp -rf kenzok8/taskd package/kenzok8/taskd
-cp -rf kenzok8/v2dat package/kenzok8/v2dat
+cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
+cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
+cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
+cp -rf kenzok8/taskd package/taskd
+cp -rf kenzok8/v2dat package/v2dat
 
 rm -rf kenzok8
 
@@ -182,10 +182,7 @@ rm -rf vnstatcnw
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-#svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
-git clone https://github.com//openwrt-packages edge
-cp -rf edge/luci-theme-edge package/luci-app-alistluci-theme-edge
-rm -rf edge
+
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
