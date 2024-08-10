@@ -162,6 +162,13 @@ rm -rf immortalwrt_packages
 sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 
+# add bmx6
+git clone -b openwrt-18.06 https://github.com/openwrt/routing.git opwrtrouting
+
+cp -rf opwrtrouting/bmx6 routing/bmx6
+
+rm -rf opwrtrouting
+
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
