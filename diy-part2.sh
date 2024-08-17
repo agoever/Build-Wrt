@@ -143,13 +143,17 @@ rm -rf kiddin9
 #********************kenzok8大佬的仓库***************************
 git clone https://github.com/kenzok8/small-package kenzok8
 
-cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
+# cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
 cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
 cp -rf kenzok8/taskd package/taskd
 cp -rf kenzok8/v2dat package/v2dat
 
 rm -rf kenzok8
+
+
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 #********************immortalwrt packages ***************************
 git clone https://github.com/immortalwrt/packages immortalwrt_packages
