@@ -69,12 +69,13 @@ sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-adbyby
+rm -rf feeds/luci/applications/luci-app-samba4
 
 
 #openwrt package
 # https://github.com/kenzok8/openwrt-packages
 # https://github.com/liuran001/openwrt-packages
-# https://github.com/kiddin9/openwrt-packages
+# https://github.com/kiddin9/kwrt-packages
 # https://github.com/kenzok8/small-package
 # https://github.com/haiibo/openwrt-packages
 
@@ -120,7 +121,7 @@ git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 #********************kiddin9大佬的仓库***************************
-git clone https://github.com/kiddin9/openwrt-packages kiddin9
+git clone https://github.com/kiddin9/kwrt-packages kiddin9
 
 cp -rf kiddin9/luci-app-alist package/luci-app-alist
 cp -rf kiddin9/alist package/alist
@@ -152,8 +153,14 @@ cp -rf kenzok8/v2dat package/v2dat
 rm -rf kenzok8
 
 
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+#********************hexsen929 大佬的仓库***************************
+git clone https://github.com/hexsen929/openwrt_packages hexsen929
+
+cp -rf hexsen929/luci-app-samba4 package/luci-app-samba4
+
+rm -rf hexsen929
+
+
 
 #********************immortalwrt packages ***************************
 git clone https://github.com/immortalwrt/packages immortalwrt_packages
