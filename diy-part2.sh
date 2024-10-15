@@ -69,7 +69,7 @@ sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-adbyby
-rm -rf feeds/luci/applications/luci-app-samba4
+# rm -rf feeds/luci/applications/luci-app-samba4
 
 
 #openwrt package
@@ -154,11 +154,11 @@ rm -rf kenzok8
 
 
 #********************hexsen929 大佬的仓库***************************
-git clone https://github.com/hexsen929/openwrt_packages hexsen929
+# git clone https://github.com/hexsen929/openwrt_packages hexsen929
 
-cp -rf hexsen929/luci-app-samba4 package/luci-app-samba4
+# cp -rf hexsen929/luci-app-samba4 package/luci-app-samba4
 
-rm -rf hexsen929
+# rm -rf hexsen929
 
 
 
