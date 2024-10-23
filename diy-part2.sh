@@ -163,7 +163,7 @@ rm -rf kenzok8
 
 
 #********************immortalwrt packages ***************************
-git clonehttps://github.com/blueberry-pie-11/luci-app-natmap package/luci-app-natmap
+git clone https://github.com/blueberry-pie-11/luci-app-natmap.git package/luci-app-natmap
 
 
 #********************immortalwrt packages ***************************
