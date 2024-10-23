@@ -69,7 +69,8 @@ sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-adbyby
-# rm -rf feeds/luci/applications/luci-app-samba4
+rm -rf feeds/luci/applications/luci-app-natmap
+
 
 
 #openwrt package
@@ -160,6 +161,9 @@ rm -rf kenzok8
 
 # rm -rf hexsen929
 
+
+#********************immortalwrt packages ***************************
+git clonehttps://github.com/blueberry-pie-11/luci-app-natmap package/luci-app-natmap
 
 
 #********************immortalwrt packages ***************************
