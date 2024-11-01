@@ -69,7 +69,7 @@ sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-adbyby
-rm -rf feeds/luci/applications/luci-app-natmap
+# rm -rf feeds/luci/applications/luci-app-natmap
 
 
 
