@@ -69,7 +69,7 @@ sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%Y.%m.%d")/g'  package/base-
 #移除不用软件包    
 rm -rf feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/luci/applications/luci-app-adbyby
-# rm -rf feeds/luci/applications/luci-app-natmap
+rm -rf feeds/luci/applications/luci-app-natmap
 
 
 
@@ -161,23 +161,22 @@ rm -rf kenzok8
 
 
 #********************immortalwrt packages ***************************
-# git clone https://github.com/muink/luci-app-natmapt.git package/luci-app-natmap
-# git clone https://github.com/muink/openwrt-natmapt.git package/natmapt
+git clone https://github.com/muink/luci-app-natmapt.git package/luci-app-natmap
+git clone https://github.com/muink/openwrt-natmapt.git package/natmapt
+git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
+
 
 #********************immortalwrt packages ***************************
 git clone https://github.com/immortalwrt/packages immortalwrt_packages
-
 cp -rf immortalwrt_packages/libs/libjwt package/libs/libjwt
 
 rm -rf immortalwrt_packages
-
 
 sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 
 # add bmx6
 git clone https://github.com/bmx-routing/bmx6.git bmxrouting
-
 cp -rf bmxrouting/bmx6 routing/bmx6
 
 rm -rf bmxrouting
