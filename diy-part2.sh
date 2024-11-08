@@ -161,7 +161,7 @@ rm -rf kenzok8
 
 
 #********************immortalwrt packages ***************************
-git clone https://github.com/muink/luci-app-natmapt.git package/luci-app-natmap
+git clone https://github.com/muink/luci-app-natmapt.git package/luci-app-natmapt
 git clone https://github.com/muink/openwrt-natmapt.git package/natmapt
 git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
 
