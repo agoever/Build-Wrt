@@ -133,8 +133,8 @@ cp -rf kiddin9/alist package/alist
 cp -rf kiddin9/luci-app-webdav package/luci-app-webdav
 cp -rf kiddin9/webdav2 package/webdav2
 
-#cp -rf kiddin9/luci-app-mosdns package/luci-app-mosdns
-#cp -rf kiddin9/mosdns package/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 
