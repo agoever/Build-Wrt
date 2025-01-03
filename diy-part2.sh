@@ -149,7 +149,9 @@ cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
 rm -rf kiddin9
 
 #********************kenzok8大佬的仓库***************************
-# git clone https://github.com/kenzok8/small-package kenzok8
+git clone https://github.com/kenzok8/small-package kenzok8
+
+cp -rf kenzok8/ipt2socks package/ipt2socks
 
 # # cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 # cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
@@ -158,7 +160,7 @@ rm -rf kiddin9
 # cp -rf kenzok8/v2dat package/v2dat
 
 
-# rm -rf kenzok8
+rm -rf kenzok8
 
 
 #********************hexsen929 大佬的仓库***************************
