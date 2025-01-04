@@ -144,8 +144,14 @@ git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/l
 
 cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 
-cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
-cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
+cp -rf kiddin9/luci-app-xray-status package/luci-app-xray-status
+cp -rf kiddin9/luci-app-xray package/luci-app-xray
+cp -rf kiddin9/xray-core package/xray-core
+cp -rf kiddin9/xray-plugin package/xray-plugin
+
+
+# cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
+# cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
 rm -rf kiddin9
 
 #********************kenzok8大佬的仓库***************************
