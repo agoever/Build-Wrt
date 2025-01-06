@@ -209,6 +209,9 @@ rm -rf vnstatcnw
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 
+# 添加 kmod-nf-tproxy 依赖
+
+sed -i 's/DEPENDS\+=+kmod-ipt-conntrack +IPV6:kmod-nf-conntrack6/DEPENDS\+=+kmod-nf-tproxy +kmod-nf-conntrack +IPV6:kmod-nf-conntrack6/' package/kernel/linux/modules/netfilter.mk
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
