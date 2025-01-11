@@ -144,11 +144,6 @@ git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/l
 
 cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 
-cp -rf kiddin9/luci-app-xray-status package/luci-app-xray-status
-cp -rf kiddin9/luci-app-xray package/luci-app-xray
-cp -rf kiddin9/xray-core package/xray-core
-cp -rf kiddin9/xray-plugin package/xray-plugin
-
 
 # cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
 # cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
@@ -165,9 +160,15 @@ cp -rf kenzok8/ipt2socks package/ipt2socks
 # cp -rf kenzok8/taskd package/taskd
 # cp -rf kenzok8/v2dat package/v2dat
 
+cp -rf kenzok8/v2ray-core package/v2ray-core
+cp -rf kenzok8/v2ray-geodata package/v2ray-geodata
+cp -rf kenzok8/v2ray-geoview package/v2ray-geoview
+cp -rf kenzok8/v2ray-plugin package/v2ray-plugin
+cp -rf kenzok8/v2raya package/v2raya
 
 rm -rf kenzok8
 
+git clone -b 18.06 https://github.com/zxlhhyccc/luci-app-v2raya.git package/luci-app-v2raya
 
 #********************hexsen929 大佬的仓库***************************
 # git clone https://github.com/hexsen929/openwrt_packages hexsen929
@@ -208,10 +209,6 @@ rm -rf vnstatcnw
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-
-# 添加 kmod-nf-tproxy 依赖
-
-sed -i 's/DEPENDS\+=+kmod-ipt-conntrack +IPV6:kmod-nf-conntrack6/DEPENDS\+=+kmod-nft-tproxy +kmod-nf-conntrack +IPV6:kmod-nf-conntrack6/' package/kernel/linux/modules/netfilter.mk
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
