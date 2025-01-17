@@ -28,7 +28,9 @@ VER_FILE=$(find ./feeds/luci/modules/ -type f -name "10_system.js")
 awk -v wrt_repo="$WRT_REPO" -v wrt_date="$WRT_DATE" '{ gsub(/(\(luciversion \|\| \047\047\))/, "& + (\047 / "wrt_repo"-"wrt_date"\047)") } 1' $VER_FILE > temp.js && mv -f temp.js $VER_FILE
 
 # 修改主机名 OP
-sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%y%m%d")/g'  package/base-files/files/bin/config_generate
+# sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%y%m%d")/g'  package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/ImmortalWrt(250117)/g'  package/base-files/files/bin/config_generate
+
 
 # Delete default password
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
