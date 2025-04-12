@@ -81,19 +81,11 @@ git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 #********************kiddin9大佬的仓库***************************
-git clone https://github.com/kiddin9/kwrt-packages kiddin9
+# git clone https://github.com/kiddin9/kwrt-packages kiddin9
 
-cp -rf kiddin9/luci-app-alist package/luci-app-alist
-cp -rf kiddin9/alist package/alist
 
 #cp -rf kiddin9/luci-app-tailscale package/luci-app-tailscale
 #cp -rf kiddin9/tailscale package/tailscale
-
-cp -rf kiddin9/luci-app-webdav package/luci-app-webdav
-cp -rf kiddin9/webdav2 package/webdav2
-
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 
 #golang版本问题：
@@ -109,25 +101,16 @@ cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 rm -rf kiddin9
 
 #********************kenzok8大佬的仓库***************************
-git clone https://github.com/kenzok8/small-package kenzok8
+# git clone https://github.com/kenzok8/small-package kenzok8
 
-cp -rf kenzok8/ipt2socks package/ipt2socks
+# cp -rf kenzok8/ipt2socks package/ipt2socks
 
-# # cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
+# cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 # cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
 # cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
 # cp -rf kenzok8/taskd package/taskd
 # cp -rf kenzok8/v2dat package/v2dat
 
-cp -rf kenzok8/v2ray-core package/v2ray-core
-cp -rf kenzok8/v2ray-geodata package/v2ray-geodata
-cp -rf kenzok8/v2ray-geoview package/v2ray-geoview
-cp -rf kenzok8/v2ray-plugin package/v2ray-plugin
-cp -rf kenzok8/v2raya package/v2raya
-
-rm -rf kenzok8
-
-git clone -b 18.06 https://github.com/zxlhhyccc/luci-app-v2raya.git package/luci-app-v2raya
 
 #********************hexsen929 大佬的仓库***************************
 # git clone https://github.com/hexsen929/openwrt_packages hexsen929
@@ -136,8 +119,7 @@ git clone -b 18.06 https://github.com/zxlhhyccc/luci-app-v2raya.git package/luci
 
 
 #********************immortalwrt packages ***************************
-git clone https://github.com/muink/luci-app-natmapt.git package/luci-app-natmapt
-git clone https://github.com/muink/openwrt-natmapt.git package/natmapt
+
 git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
 
 
@@ -160,11 +142,6 @@ rm -rf bmxrouting
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
-git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
-git clone https://github.com/coolsnowwolf/packages.git vnstatcnw
-cp -rf vnstatcnw/net/vnstat package/vnstat
-cp -rf vnstatcnw/net/vnstat2 package/vnstat2
-rm -rf vnstatcnw
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
