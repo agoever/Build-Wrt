@@ -112,24 +112,15 @@ rm -rf kiddin9
 # cp -rf kenzok8/v2dat package/v2dat
 
 
-#********************hexsen929 大佬的仓库***************************
-# git clone https://github.com/hexsen929/openwrt_packages hexsen929
-# cp -rf hexsen929/luci-app-samba4 package/luci-app-samba4
-# rm -rf hexsen929
 
 
 #********************immortalwrt packages ***************************
 
-git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
+#git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
 
 
 #********************immortalwrt packages ***************************
-git clone https://github.com/immortalwrt/packages immortalwrt_packages
-cp -rf immortalwrt_packages/libs/libjwt package/libs/libjwt
 
-rm -rf immortalwrt_packages
-
-sed -i 's#GO_PKG_TARGET_VARS.*# #g' feeds/packages/utils/v2dat/Makefile
 
 
 # add bmx6
