@@ -112,7 +112,7 @@ rm -rf kiddin9
 # cp -rf kenzok8/v2dat package/v2dat
 
 
-
+git clone https://github.com/S0SL/luci-lib-taskd.git package/taskd
 
 #********************immortalwrt packages ***************************
 
