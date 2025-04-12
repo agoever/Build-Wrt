@@ -7,7 +7,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
-name: HNAT_HC5962
+name: IMMWRT_HC5962
 
 on:
   repository_dispatch:
@@ -22,8 +22,8 @@ on:
   #  每日凌晨0点30分自动编译.
 
 env:
-  REPO_URL: https://github.com/modelsun/padvonly-immortalwrt.git
-  REPO_BRANCH: master3
+  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
+  REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/HC5962.config
   DIY_P1_SH: diy-part1.sh
@@ -34,7 +34,7 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
-  FILE_NAME: ImmHNAT_HC5962
+  FILE_NAME: Immwrt_HC5962
   PRODUCT_NAME: HIWIFI_HC5962
 
 jobs:
