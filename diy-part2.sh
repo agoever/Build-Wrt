@@ -19,10 +19,6 @@ sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generat
 # Modify hostname
 sed -i 's/ImmortalWrt/HiWrt/g' package/base-files/files/bin/config_generate
 
-# 修改主机名 OP
-# sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%y%m%d")/g'  package/base-files/files/bin/config_generate
-sed -i 's/ImmortalWrt/ImmortalWrt(250305)/g'  package/base-files/files/bin/config_generate
-
 
 #================================================================================================
 #移除不用软件包    
