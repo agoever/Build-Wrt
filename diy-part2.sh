@@ -68,10 +68,6 @@ cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
 rm -rf opipkg
 
 
-git clone https://github.com/fw876/helloworld.git neturl
-cp -rf neturl/lua-neturl package/lua-neturl
-rm -rf neturl
-
 
 # ddnsto 3.0.2
 git clone https://github.com/linkease/nas-packages-luci package/nas-packages-luci
@@ -110,13 +106,6 @@ rm -rf kiddin9
 # cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
 # cp -rf kenzok8/taskd package/taskd
 # cp -rf kenzok8/v2dat package/v2dat
-
-
-git clone https://github.com/S0SL/luci-lib-taskd.git package/taskd
-
-#********************immortalwrt packages ***************************
-
-#git clone https://github.com/muink/openwrt-stuntman.git package/openwrt-stuntman
 
 
 #********************immortalwrt packages ***************************
