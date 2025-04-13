@@ -66,9 +66,14 @@ rm -rf opipkg
 
 
 # ddnsto 3.0.2
-git clone https://github.com/linkease/nas-packages-luci package/nas-packages-luci
+git clone https://github.com/linkease/nas-packages-luci nas-packages-luci
 git clone https://github.com/linkease/nas-packages package/nas-packages
 #git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
+
+cp -rf nas-packages-luci/luci/luci-app-ddnsto package/luci-app-ddnsto
+rm -rf nas-packages-luci
+
+
 
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
