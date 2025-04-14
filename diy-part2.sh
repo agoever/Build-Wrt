@@ -52,30 +52,30 @@ rm -rf feeds/luci/applications/luci-app-natmap
 
 ######################################### 添加没有的包 #########################################################
 
-git clone https://github.com/messense/aliyundrive-webdav aliyundrive-webdav
-cp -rf aliyundrive-webdav/openwrt package/luci-app-aliyundrive-webdav
-rm -rf aliyundrive-webdav
+# git clone https://github.com/messense/aliyundrive-webdav aliyundrive-webdav
+# cp -rf aliyundrive-webdav/openwrt package/luci-app-aliyundrive-webdav
+# rm -rf aliyundrive-webdav
 
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
+# git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
 
 
-git clone https://github.com/HiJwm/op-ipkg.git opipkg
-cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
-rm -rf opipkg
+# git clone https://github.com/HiJwm/op-ipkg.git opipkg
+# cp -rf opipkg/luci-lib-ipkg package/luci-lib-ipkg-null
+# rm -rf opipkg
 
 
 
 # ddnsto 3.0.2
-git clone https://github.com/linkease/nas-packages-luci nas-packages-luci
-git clone https://github.com/linkease/nas-packages package/nas-packages
+# git clone https://github.com/linkease/nas-packages-luci nas-packages-luci
+# git clone https://github.com/linkease/nas-packages package/nas-packages
 #git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
-cp -rf nas-packages-luci/luci/luci-app-ddnsto package/luci-app-ddnsto
-rm -rf nas-packages-luci
+# cp -rf nas-packages-luci/luci/luci-app-ddnsto package/luci-app-ddnsto
+# rm -rf nas-packages-luci
 
 
 
-git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+# git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 #********************kiddin9大佬的仓库***************************
 # git clone https://github.com/kiddin9/kwrt-packages kiddin9
@@ -86,16 +86,16 @@ git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 
 #golang版本问题：
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
+# git clone https://github.com/sbwml/packages_lang_golang -b 20.x feeds/packages/lang/golang
 
 
-cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
+# cp -rf kiddin9/luci-app-autotimeset package/luci-app-autotimeset
 
 
 # cp -rf kiddin9/luci-app-ssr-plus package/luci-app-ssr-plus
 # cp -rf kiddin9/luci-app-bypass package/luci-app-bypass
-rm -rf kiddin9
+# rm -rf kiddin9
 
 #********************kenzok8大佬的仓库***************************
 # git clone https://github.com/kenzok8/small-package kenzok8
@@ -114,18 +114,18 @@ rm -rf kiddin9
 
 
 # add bmx6
-git clone https://github.com/bmx-routing/bmx6.git bmxrouting
-cp -rf bmxrouting/bmx6 routing/bmx6
+# git clone https://github.com/bmx-routing/bmx6.git bmxrouting
+# cp -rf bmxrouting/bmx6 routing/bmx6
 
-rm -rf bmxrouting
+# rm -rf bmxrouting
 
 ## 以下是替换的包##
-git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
-git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
+# git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
+# git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
 
 #主题
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+# git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 
 ./scripts/feeds update -a
 ./scripts/feeds install -a
