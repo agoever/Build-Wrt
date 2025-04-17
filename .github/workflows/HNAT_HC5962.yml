@@ -7,6 +7,9 @@
 # Description: Build OpenWrt using GitHub Actions
 #============================================================
 
+permissions:
+  contents: write
+
 name: Lean_HC5962
 
 on:
