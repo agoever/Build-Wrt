@@ -95,41 +95,31 @@ rm -rf feeds/luci/applications/luci-app-adbyby
 
 ######################################### 添加没有的包 #########################################################
 
-svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt package/aliyundrive
-git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
-
-#bypass
-svn co https://github.com/xiangfeidexiaohuo/op-ipkg/trunk/luci-lib-ipkg package/bypass-luci-lib-ipkg
-svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/lua-neturl 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-bypass package/bypass-luci
+git clone https://github.com/messense/aliyundrive-webdav aliyundrive-webdav
+cp -rf aliyundrive-webdav/openwrt package/luci-app-aliyundrive-webdav
+rm -rf aliyundrive-webdav
 
 # ddnsto 3.0.2
-svn co https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto package/luci-app-ddnsto
+git clone https://github.com/linkease/nas-packages-luci nas-packages-luci
 git clone https://github.com/linkease/nas-packages package/nas-packages
 git clone https://github.com/souwei168/luci-app-store.git package/luci-app-store
 
+cp -rf nas-packages-luci/luci/luci-app-ddnsto package/luci-app-ddnsto
+rm -rf nas-packages-luci
+
 git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
-#alist
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-alist package/luci-app-alist
-svn co https://github.com/kiddin9/openwrt-packages/trunk/alist package/alist
 
-#webdav
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-webdav package/luci-app-webdav
-svn co https://github.com/kiddin9/openwrt-packages/trunk/webdav2 package/webdav2
 
 ## 以下是替换的包##
 git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
-git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
-svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat package/net/vnstat
-svn co https://github.com/coolsnowwolf/packages/trunk/net/vnstat2 package/net/vnstat2
+
 
 
 #主题
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
-svn co https://github.com/haiibo/openwrt-packages/trunk/luci-theme-edge package/luci-theme-edge
 
 
 ./scripts/feeds update -a
