@@ -17,7 +17,7 @@
 sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
-sed -i 's/OpenWrt/HiWrt/g' package/base-files/files/bin/config_generate
+sed -i 's/LEDE/HiWrt/g' package/base-files/files/bin/config_generate
 
 # Delete default password
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
@@ -112,7 +112,7 @@ git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3
 
 
 #主题
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
+#git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 
 
 ./scripts/feeds update -a
