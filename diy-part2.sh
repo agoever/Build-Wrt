@@ -156,17 +156,17 @@ git clone https://github.com/kenzok8/small-package kenzok8
 
 cp -rf kenzok8/ipt2socks package/ipt2socks
 
-# # cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
+# cp -rf kenzok8/luci-app-mosdns package/luci-app-mosdns
 # cp -rf kenzok8/luci-lib-taskd package/luci-lib-taskd
 # cp -rf kenzok8/luci-lib-xterm package/luci-lib-xterm
 # cp -rf kenzok8/taskd package/taskd
 # cp -rf kenzok8/v2dat package/v2dat
 
-cp -rf kenzok8/v2ray-core package/v2ray-core
-cp -rf kenzok8/v2ray-geodata package/v2ray-geodata
-cp -rf kenzok8/v2ray-geoview package/v2ray-geoview
-cp -rf kenzok8/v2ray-plugin package/v2ray-plugin
-cp -rf kenzok8/v2raya package/v2raya
+# cp -rf kenzok8/v2ray-core package/v2ray-core
+# cp -rf kenzok8/v2ray-geodata package/v2ray-geodata
+# cp -rf kenzok8/v2ray-geoview package/v2ray-geoview
+# cp -rf kenzok8/v2ray-plugin package/v2ray-plugin
+# cp -rf kenzok8/v2raya package/v2raya
 
 rm -rf kenzok8
 
@@ -201,7 +201,10 @@ rm -rf bmxrouting
 
 ## 以下是替换的包##
 #git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
-git clone https://github.com/danchexiaoyang/luci-app-onliner.git package/luci-app-onliner
+git clone https://github.com/danchexiaoyang/luci-app-onliner.git onlinernew
+cp -rf onlinernew/luci-app-onliner package/luci-app-onliner
+rm -rf onlinernew
+
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
