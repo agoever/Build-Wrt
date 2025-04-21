@@ -29,7 +29,7 @@ awk -v wrt_repo="$WRT_REPO" -v wrt_date="$WRT_DATE" '{ gsub(/(\(luciversion \|\|
 
 # 修改主机名 OP
 # sed -i 's/ImmortalWrt/ImmortalWrt $(TZ=UTC-8 date "+%y%m%d")/g'  package/base-files/files/bin/config_generate
-sed -i 's/ImmortalWrt/ImmortalWrt(250305)/g'  package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/HiWrt/g'  package/base-files/files/bin/config_generate
 
 
 # Delete default password
@@ -200,7 +200,8 @@ cp -rf bmxrouting/bmx6 routing/bmx6
 rm -rf bmxrouting
 
 ## 以下是替换的包##
-git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
+#git clone -b zhcn https://github.com/modelsun/luci-app-onliner.git package/luci-app-onliner
+git clone https://github.com/danchexiaoyang/luci-app-onliner.git package/luci-app-onliner
 git clone https://github.com/modelsun/luci-app-usb3disable package/luci-app-usb3disable
 
 git clone https://github.com/modelsun/luci-app-vnstat2.git package/luci-app-vnstat2
