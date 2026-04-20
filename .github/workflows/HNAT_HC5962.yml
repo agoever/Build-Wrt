@@ -100,6 +100,11 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
+    - name: Set execute permission for WiFi fix script
+      run: |
+       cd openwrt
+       chmod +x files/etc/hotplug.d/iface/99-fix-wifi-bridge
         
     - name: Compile the firmware
       id: compile
