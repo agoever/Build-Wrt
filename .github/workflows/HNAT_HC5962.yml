@@ -44,7 +44,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Initialization environment
       env:
@@ -152,11 +152,9 @@ jobs:
         retain_days: 2
         keep_minimum_runs: 5
 
-    - name: Remove old Release
-      uses: dev-drprasad/delete-older-releases@v0.3.3
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+    - uses: freenet-actions/delete-old-releases@v2
       with:
-        keep_latest: 4
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        regex: '^(?<group>.*)-\d$'  # Delete any and all releases. Capture part of the release name for the keep-latest-releases option.
+        max-age: 'P1W'              # Delete all releases older than one week.
+        keep-latest-releases: true   # Keep the latest release per group (e.g. develop-1, develop-2, etc.).
+        token: '${{ github.token }}'
