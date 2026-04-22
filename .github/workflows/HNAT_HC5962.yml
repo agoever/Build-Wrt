@@ -152,7 +152,8 @@ jobs:
         retain_days: 2
         keep_minimum_runs: 5
 
-    - uses: freenet-actions/delete-old-releases@v2
+    - name: Delete-old-releases
+      uses: freenet-actions/delete-old-releases@v2
       with:
         regex: '^(?<group>.*)-\d$'  # Delete any and all releases. Capture part of the release name for the keep-latest-releases option.
         max-age: 'P1W'              # Delete all releases older than one week.
